@@ -225,6 +225,20 @@
   .steps button b{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;background:var(--line);color:var(--ink);font-size:12px}
   .steps button[aria-current="step"]{border-color:var(--ink);color:var(--ink)}
   .steps button[aria-current="step"] b{background:var(--ink);color:#FFF8F0}
+  .step-q{background:linear-gradient(135deg,#FFF1E8,#FDE7EF);border-radius:16px;padding:14px 16px;margin:8px 0 14px}
+  .step-q span{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2)}
+  .step-q h3{margin:4px 0 2px;font-size:20px;font-weight:800;letter-spacing:-.01em}
+  .step-q p{margin:0}
+  .step-nav .next{min-height:46px;padding:10px 22px;font-size:15px}
+  .steps{grid-template-columns:repeat(6,minmax(0,1fr)) !important;gap:4px !important}
+  .steps button{padding:6px 0 !important;min-width:0}
+  .steps button span{display:none}
+  .steps button b{width:30px !important;height:30px !important;font-size:13px !important}
+  .resumen{display:grid;gap:6px;font-size:13.5px}
+  .resumen div{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;background:#fff;border:1px solid var(--line);border-radius:10px}
+  .resumen div b{color:var(--ink2);font-weight:600}
+  .resumen div span{text-align:right;font-weight:700}
+  .resumen button{border:0;background:none;color:var(--accent,#C2415B);font:inherit;font-weight:700;cursor:pointer;padding:0;margin-left:6px}
   .step-h{display:flex;align-items:center;gap:10px;margin:4px 0 2px;font-size:17px;font-weight:800}
   .step-h b{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#FFF8F0;font-size:13px}
   .step-p{margin:0 0 12px}
@@ -296,10 +310,12 @@
         <button type="button" data-go="1" aria-current="step"><b>1</b><span>Producto</span></button>
         <button type="button" data-go="2"><b>2</b><span>Mensaje</span></button>
         <button type="button" data-go="3"><b>3</b><span>Foto</span></button>
-        <button type="button" data-go="4"><b>4</b><span>Diseño</span></button>
+        <button type="button" data-go="4"><b>4</b><span>Personas</span></button>
+        <button type="button" data-go="5"><b>5</b><span>Diseño</span></button>
+        <button type="button" data-go="6"><b>6</b><span>Listo</span></button>
       </nav>
-      <section class="sec step" data-step="1" aria-label="Paso 1: Tu producto">
-        <h3 class="step-h"><b>1</b>Tu producto</h3><p class="hint step-p">Qué vendés, a qué precio y la foto de tu producto.</p>
+      <section class="sec step" data-step="1" aria-label="Paso 1: Producto">
+        <div class="step-q"><span>Paso 1 de 6</span><h3>¿Qué vas a anunciar?</h3><p class="hint">Contanos el producto, el precio y subí su foto.</p></div>
         <div class="fields">
           <label class="f">Cuenta de la tienda<input name="tienda" value="@tutienda.uy"></label>
           <div class="two">
@@ -322,11 +338,10 @@
           <div class="f" style="gap:8px"><span>Cómo aparece el producto en la foto</span><div class="opt" data-opt="prodModo"></div></div>
           <label class="f">Beneficios <span class="hint">separados por coma</span><input name="beneficios" value="Define cada rulo, Hidrata sin apelmazar, Controla el frizz"></label>
         </div>
-      
-        <div class="step-nav"><span></span><button class="btn primary sm" type="button" data-go="2">Siguiente: el mensaje →</button></div>
+        <div class="step-nav"><span></span><button class="btn primary next" type="button" data-go="2" aria-label="Siguiente">Seguir →</button></div>
       </section>
-      <section class="sec step" data-step="2" aria-label="Paso 2: El mensaje" hidden>
-        <h3 class="step-h"><b>2</b>El mensaje</h3><p class="hint step-p">Qué querés probar y quién escribe los textos.</p>
+      <section class="sec step" data-step="2" aria-label="Paso 2: Mensaje" hidden>
+        <div class="step-q"><span>Paso 2 de 6</span><h3>¿Qué querés comunicar?</h3><p class="hint">Elegí qué probar y quién escribe los textos.</p></div>
         <div class="fields">
           <div class="f" style="gap:8px"><span>Enfoques a probar</span>
             <div class="checks" id="enfoques">
@@ -353,11 +368,10 @@
             <label class="f">Cupo de pedidos<input name="cupo" inputmode="numeric" value="50"></label>
           </div>
         </div>
-      
-        <div class="step-nav"><button class="btn sm" type="button" data-go="1">← Anterior</button><button class="btn primary sm" type="button" data-go="3">Siguiente: la foto →</button></div>
+        <div class="step-nav"><button class="btn sm" type="button" data-go="1">← Atrás</button><button class="btn primary next" type="button" data-go="3" aria-label="Siguiente">Seguir →</button></div>
       </section>
-      <section class="sec step" data-step="3" aria-label="Paso 3: La foto" hidden>
-        <h3 class="step-h"><b>3</b>La foto</h3><p class="hint step-p">Cómo querés que sea la foto que crea la IA.</p>
+      <section class="sec step" data-step="3" aria-label="Paso 3: Foto" hidden>
+        <div class="step-q"><span>Paso 3 de 6</span><h3>¿Cómo querés la foto?</h3><p class="hint">La IA crea una foto nueva para cada anuncio.</p></div>
         <div class="fields">
           <div class="sub">La foto</div>
           <div class="f" style="gap:8px"><span>Tipo de foto</span><div class="opt" data-opt="tipofoto"></div><span class="hint">"Variado" reparte distintos tipos de foto en cada tanda. Después podés cambiar cada anuncio.</span></div>
@@ -365,19 +379,24 @@
           <div class="f" style="gap:8px"><span>Color de fondo</span><div class="opt" data-opt="fondo"></div></div>
           <div class="f" style="gap:8px"><span>Estilo de foto</span><div class="opt" data-opt="foto"></div></div>
           <div class="f" style="gap:8px"><span>Si no subiste tu producto</span><div class="opt" data-opt="pote"></div></div>
-          <div class="fields" id="genBox">
-            <div class="sub">Las personas de la foto</div>
+        </div>
+        <div class="step-nav"><button class="btn sm" type="button" data-go="2">← Atrás</button><button class="btn primary next" type="button" data-go="4" aria-label="Siguiente">Seguir →</button></div>
+      </section>
+      <section class="sec step" data-step="4" aria-label="Paso 4: Personas" hidden>
+        <div class="step-q"><span>Paso 4 de 6</span><h3>¿Quiénes aparecen en la foto?</h3><p class="hint">Si la foto no lleva personas, podés saltear este paso.</p></div>
+                  <div class="fields" id="genBox">
+            
             <div class="f" style="gap:8px"><span>Quiénes aparecen</span><div class="opt" data-opt="genero"></div></div>
             <div class="f" style="gap:8px"><span>Cuántas personas</span><div class="opt" data-opt="personas"></div></div>
             <div class="f" style="gap:8px"><span>Edad</span><div class="opt" data-opt="edad"></div></div>
             <div class="f" style="gap:8px"><span>Tipo de rulo</span><div class="opt" data-opt="rulo"></div></div>
             <div class="f" style="gap:8px"><span>Tono de piel</span><div class="opt" data-opt="piel"></div></div>
           </div>
-        </div>
-        <div class="step-nav"><button class="btn sm" type="button" data-go="2">← Anterior</button><button class="btn primary sm" type="button" data-go="4">Siguiente: el diseño →</button></div>
+        
+        <div class="step-nav"><button class="btn sm" type="button" data-go="3">← Atrás</button><button class="btn primary next" type="button" data-go="5" aria-label="Siguiente">Seguir →</button></div>
       </section>
-      <section class="sec step" data-step="4" aria-label="Paso 4: El diseño" hidden>
-        <h3 class="step-h"><b>4</b>El diseño</h3><p class="hint step-p">Estilo, letra y colores de los anuncios.</p>
+      <section class="sec step" data-step="5" aria-label="Paso 5: Diseño" hidden>
+        <div class="step-q"><span>Paso 5 de 6</span><h3>¿Cómo querés que se vea?</h3><p class="hint">Estilo, letra y colores de los anuncios.</p></div>
         <div class="fields">
           <div class="f" style="gap:8px"><span>Estilo del texto</span><div class="opt" data-opt="layout"></div></div>
           <div class="f" style="gap:8px"><span>Tipografía</span><div class="opt" data-opt="tipo"></div></div>
@@ -386,17 +405,18 @@
             <span class="file"><input type="file" name="logo" accept="image/*"><img id="thumbLogo" alt="" hidden></span>
           </label>
         </div>
-      
-        <div class="step-nav"><button class="btn sm" type="button" data-go="3">← Anterior</button><span class="hint" style="align-self:center">Listo: tocá "Generar anuncios con IA" abajo ↓</span></div>
+        <div class="step-nav"><button class="btn sm" type="button" data-go="4">← Atrás</button><button class="btn primary next" type="button" data-go="6" aria-label="Siguiente">Seguir →</button></div>
       </section>
+      <section class="sec step" data-step="6" aria-label="Paso 6: Listo" hidden>
+        <div class="step-q"><span>Paso 6 de 6</span><h3>¡Todo listo!</h3><p class="hint">Revisá lo que elegiste y generá tus anuncios.</p></div>
+        <div class="resumen" id="resumen"></div>
+        <div id="genArea"></div>
+        <div class="step-nav"><button class="btn sm" type="button" data-go="5">← Atrás</button><span></span></div>
+      </section>
+
       <details class="sec adv" id="secAdv"><summary>⚙ Ajustes</summary>
         <div class="fields">
-          <div class="fields" id="keyBox">
-            <p class="hint" style="margin:0">Si las fotos no se crean, pegá acá la clave de acceso de la IA. Se guarda solo en este navegador.</p>
-            <label class="f">Clave de acceso de la IA<input id="pkey" placeholder="Pegá la clave" autocomplete="off" spellcheck="false" type="password"></label>
-            <button class="btn sm" id="btnTest" type="button">Probar conexión</button>
-            <div id="testOut" class="hint" hidden></div>
-          </div>
+          <div id="keyBox" hidden><input id="pkey" type="hidden"><button id="btnTest" type="button" hidden></button><div id="testOut" hidden></div></div>
           <p class="status" id="srvOk" hidden style="margin:0"></p>
           <div class="f" style="gap:8px"><span>Forma de integrar el producto a la foto</span><div class="opt" data-opt="modeloInt"></div><span class="hint">Si una da error o el producto sale raro, probá otra.</span></div>
           <button class="btn sm" id="btnReset" type="button">Borrar todo y empezar de cero</button>
@@ -880,7 +900,7 @@ Reglas:
         if (r.data){ a.img = r.data; a.tainted = false; ok = true; a.integrado = !!a._intReq; }
         else if (r.remote){ a.img = r.remote; a.tainted = true; ok = true; a.integrado = !!a._intReq; }
         else if (r.retry){ fotoStatus(`Muchos pedidos seguidos: esperando ${r.retry} segundos…`); await sleep(r.retry * 1000); }
-        else if (r.fatal){ fatal = true; a.imgErr = r.saldo ? (a._intReq ? 'La IA no pudo integrar el producto. Probá otra opción en ⚙ Ajustes o elegí "Pegarlo encima".' : 'La IA se quedó sin crédito disponible. Avisale a quien administra el sitio.') : 'La IA rechazó el pedido (código ' + r.code + '). Revisá la clave en ⚙ Ajustes.'; }
+        else if (r.fatal){ fatal = true; a.imgErr = r.saldo ? (a._intReq ? 'La IA no pudo integrar el producto. Probá otra opción en ⚙ Ajustes o elegí "Pegarlo encima".' : 'La IA se quedó sin crédito disponible. Avisale a quien administra el sitio.') : 'La IA rechazó el pedido (código ' + r.code + '). Probá de nuevo en un rato.'; }
         else { a.imgErr = r.err; await sleep(3000 + i * 2000); }
       }
       a.imgEl = null; a.imgState = ok ? 'ok' : 'error'; if (!ok){ lastImgErr = a.imgErr || 'sin respuesta'; }
@@ -896,7 +916,7 @@ Reglas:
     if (n) status(`La IA está creando las fotos: faltan ${n}. Mientras tanto podés editar los textos.`, 'busy');
     else if (!busy && /creando las fotos|Muchos pedidos seguidos/.test($('#status').textContent)) {
       const fails = ads.filter(a => a.imgState === 'error').length;
-      if (fails){ status(`No se pudieron crear ${fails} fotos. Motivo: ${lastImgErr}. Probá de nuevo en un rato o revisá ⚙ Ajustes.`, 'err'); $('#secAdv').open = true; }
+      if (fails){ status(`No se pudieron crear ${fails} fotos. Motivo: ${lastImgErr}. Probá de nuevo en un rato.`, 'err'); $('#secAdv').open = true; }
       else { status('¡Listo! Todas las fotos están generadas.'); setTimeout(() => status(''), 3500); }
     }
   }
@@ -1312,7 +1332,7 @@ Reglas:
     cp: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>',
     up: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21V9M7 14l5-5 5 5M5 3h14"/></svg>'
   };
-  function renderAll(){ renderStage(); renderCtrl(); renderStrip(); renderCollage(); renderFavs(); setBusy(!!busy); }
+  function renderAll(){ renderStage(); renderCtrl(); renderStrip(); renderCollage(); renderFavs(); setBusy(!!busy); placeGen(); }
   function renderFavs(){
     const g = $('#favsG'); if (!g) return; const favs = ads.filter(a => a.fav), H = FORMATOS[formato].h;
     $('#favN').textContent = favs.length;
@@ -1371,7 +1391,7 @@ Reglas:
       </div>
       <div class="group" data-tab="producto"><span class="glab">Producto en este anuncio</span>
         <div class="f" style="gap:6px"><span>Cómo aparece</span><div class="opt">${OPTS.prodModo.items.map(([v, t]) => `<button type="button" data-po="prodModo" data-v="${v}" aria-pressed="${((a.op || opt).prodModo || 'mano') === v}">${t}</button>`).join('')}</div></div>
-        ${(a.op || opt).prodModo !== 'pegar' && prods.length && !key() ? '<p class="status err" style="margin:0">Para que la IA ponga el producto en la foto hace falta la clave de la IA (⚙ Ajustes).</p>' : ''}
+        ${(a.op || opt).prodModo !== 'pegar' && prods.length && !key() ? '' : ''}
         ${a.integrado ? '<p class="hint" style="margin:0">Esta foto ya tiene el producto integrado por la IA.</p>' : ''}
         ${prods.length ? `<div class="f" style="gap:6px"><span>Producto</span><div class="opt">${prods.map(pp => `<button type="button" data-prodid="${pp.id}" aria-pressed="${((a.prodId || prodDef) === pp.id)}">${esc(pp.name)}</button>`).join('')}</div></div>
         <label class="tog">Mostrar mi producto<input type="checkbox" data-t="showProd" ${a.showProd !== false ? 'checked' : ''}></label>
@@ -1501,11 +1521,30 @@ Reglas:
   }
 
   // ---------- Eventos ----------
+  var stepNow = 1;
   function showStep(n){
+    if (n === 4 && !['variado','modelo'].includes(opt.tipofoto)) n = stepNow > 4 ? 3 : 5;
+    stepNow = n;
     $$('.step').forEach(st => st.hidden = Number(st.dataset.step) !== n);
+    if (n === 6) renderResumen();
+    placeGen();
     $$('.steps [data-go]').forEach(b => { if (Number(b.dataset.go) === n) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current'); });
   }
   $$('[data-go]').forEach(b => b.onclick = () => { showStep(Number(b.dataset.go)); if (!b.closest('.steps')) $('.steps').scrollIntoView({behavior:'smooth', block:'nearest'}); });
+  setTimeout(placeGen, 0);
+  function placeGen(){
+    const ga = $('#genArea'), box = [$('#btnPlan'), $('#planInfo'), $('#btnGen'), $('#btnStop')];
+    if (stepNow === 6) box.forEach(el => ga.appendChild(el)); else box.forEach(el => $('.brief').appendChild(el));
+    const show = stepNow === 6 || ads.length > 0; box.forEach(el => { if (el.id !== 'btnStop') el.style.display = show ? '' : 'none'; });
+  }
+  function renderResumen(){
+    const fd = new FormData(form), g = k => String(fd.get(k) || '').trim(), lab = (k) => { const it = OPTS[k].items.find(([v]) => v === opt[k]); return it ? it[1] : opt[k]; };
+    const per = ['variado','modelo'].includes(opt.tipofoto) ? `${lab('genero')} · ${lab('personas')}` : 'Sin personas';
+    const rows = [['Producto', `${g('marca')} ${g('producto')} ${g('tam')}`, 1], ['Precio', `$ ${g('oferta') || g('lista')}`, 1], ['Enfoques', enfoques().join(', '), 2], ['Textos', lab('textos'), 2], ['Anuncios', opt.cantidad, 2],
+      ['Foto', `${lab('tipofoto')} · ${lab('escena')}`, 3], ['Fondo', lab('fondo'), 3], ['Personas', per, 4], ['Estilo', lab('layout'), 5], ['Letra', lab('tipo'), 5], ['Color', lab('acento'), 5]];
+    $('#resumen').innerHTML = rows.map(([k, v, st]) => `<div><b>${k}</b><span>${esc(v)}<button type="button" data-goedit="${st}">Cambiar</button></span></div>`).join('');
+    $$('#resumen [data-goedit]').forEach(b => b.onclick = () => showStep(Number(b.dataset.goedit)));
+  }
   $('#btnGen').onclick = () => generar();
   $('#btnStop').onclick = () => busy && busy.abort();
   $('#btnTest').onclick = async () => {
