@@ -287,7 +287,6 @@
 
 <section class="hero">
   <div class="hero-t">
-    <span class="badge"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.8 4.6L18.5 9l-4.7 1.4L12 15l-1.8-4.6L5.5 9l4.7-1.4z"/></svg>Meta Ads · A/B testing</span>
     <h2>Generador de Ads <em>Infinitos</em></h2>
     <p>Contale a la IA qué vendés, elegí el estilo y generá anuncios distintos en minutos: foto, texto y diseño. Si uno no te gusta, pedís otro.</p>
     <div class="row">
@@ -545,7 +544,7 @@
   const opt = {};
   Object.keys(OPTS).forEach(k => opt[k] = OPTS[k].def);
   // Opciones propias ("Otro…") y colores elegidos con la rueda
-  const OTRO = {tono:'Ej.: inspirador', escena:'Ej.: gimnasio, cocina, parque', edad:'Ej.: 50 a 60 años', rulo:'Ej.: rulos con canas', piel:'Ej.: piel con pecas', personas:'Ej.: madre e hija', foto:'Ej.: estilo vintage'};
+  const OTRO = {tono:'Ej.: inspirador', edad:'Ej.: 50 a 60 años'};
   const custom = {};
   const isX = v => typeof v === 'string' && v.startsWith('x:');
   const xTxt = v => String(v).slice(2);
